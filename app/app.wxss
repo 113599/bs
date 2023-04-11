@@ -1,0 +1,49 @@
+.fater-text-white{
+    color: #fff !important;
+}
+
+.fater-bg-main{
+    background-color: #2d8cf0 !important;
+}
+.fater-boder-none{
+    border: none !important;
+}
+
+.fater-text-center{
+    text-align: center;
+}
+
+
+.fater-win{
+    width: 620rpx;
+}
+.fater-win-title{
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #2D81FD;
+}
+.fater-win-title-lab{
+    position: absolute;
+    left: 30rpx;
+    top: 0rpx;
+}
+.fater-win-title-ico{
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}
+.fater-win-body{
+    padding: 30rpx 20rpx 20rpx 20rpx;
+}
+.fater-form-foot{
+    
+    margin-top: 40rpx;
+    margin-left: 320rpx;
+}
+
+page{
+    --popup-round-border-radius: 20rpx;
+}

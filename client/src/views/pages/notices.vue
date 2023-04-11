@@ -1,0 +1,153 @@
+<template>
+	<div class="fater-body-show">
+                <Card>
+            <template #title>
+				信息查询
+			</template>
+			<div>
+				<Form :model="qryForm" inline>
+					<FormItem>
+						<Input type="text" v-model="qryForm.title" placeholder="公告标题……"></Input>
+					</FormItem>
+					<FormItem>
+						<Button type="primary" @click="getPageInfo(1, 10)">
+							<Icon type="ios-search" />
+						</Button>
+					</FormItem>
+				</Form>
+			</div>
+		</Card>
+
+        <Card>
+			<template #title>
+				<Button @click="showAddWin()" type="primary">
+					<Icon type="md-add" />
+				</Button>
+			</template>
+			<div>
+				<Table border :columns="columns" :loading="loading" :data="pageInfos">
+					<template #action="{ row }">
+						<Button size="small" type="warning" icon="ios-trash" @click="delInfo(row.id)"></Button>
+					</template>
+				</Table>
+				<Page style="margin-top: 15px;" v-if="pageTotal > 1" :current="pageIndex"
+					@on-change="handleCurrentChange" :total="totalInfo" show-total/>
+			</div>
+		</Card>
+
+        <Modal v-model="showAddFlag"
+			title="信息编辑" ok-text="提交" cancel-text="取消" @on-ok="addInfo()">
+			<Form :label-width="80" :model="noticeForm">
+				<FormItem label="公告标题">
+					<Input v-model="noticeForm.title" placeholder="请输入公告标题..."></Input>
+				</FormItem>
+				<FormItem label="公告内容">
+					<Input v-model="noticeForm.detail" type="textarea" rows="5" placeholder="请输入公告内容..."></Input>
+				</FormItem>
+			</Form>
+		</Modal>
+    </div>
+</template>
+
+<script>
+import {
+    getPageNotices,
+    addNotices,
+    delNotices,
+} from '../../api/index.js';
+
+export default{
+		
+    data(){
+        return {
+            pageInfos: [],
+            pageIndex: 1,
+            pageSize: 10,
+            pageTotal: 0,
+            totalInfo: 0,
+            loading: true,
+            showAddFlag: false,
+            qryForm: {
+                title: "",
+            },
+            noticeForm: {
+                id: "",
+                title: "",
+                detail: "",
+            },
+            columns: [
+                {title: '序号', type: 'index', width: 70, align: 'center'},
+                {title: '公告标题', key: 'title', align: 'center'},
+                {title: '发布时间', key: 'putTime', align: 'center'},
+                {title: '公告详情', key: 'detail', align: 'left'},
+                {title: '操作', slot: 'action', align: 'center'}
+            ]
+        }
+    },
+    methods: {
+
+        getPageInfo(pageIndex, pageSize) {
+			
+            getPageNotices(pageIndex, pageSize, 
+                    this.qryForm.title).then(resp => {
+                
+                this.pageInfos = resp.data.data;
+                this.pageIndex = resp.data.pageIndex;
+                this.pageSize = resp.data.pageSize;
+                this.pageTotal = resp.data.pageTotal;
+                this.totalInfo = resp.data.count;
+        
+                this.loading = false;
+            });
+        },
+        handleCurrentChange(pageIndex) {
+        
+            this.getPageInfo(pageIndex, this.pageSize);
+        },	
+        showAddWin(){
+
+            this.noticeForm = {
+                title: "",
+                detail: "",
+            };
+            this.showAddFlag = true;
+        },
+        addInfo() {
+			
+            addNotices(this.noticeForm).then(resp => {
+                
+                this.$Notice.success({
+                    duration: 3,
+                    title: resp.msg
+                });
+                
+                this.getPageInfo(1, this.pageSize);
+                
+                this.showAddFlag = false;
+            });
+        },
+        delInfo(id){
+
+            this.$Modal.confirm({
+                title: '系统提示',
+                content: '即将删除相关信息, 是否继续?',
+                onOk: () => {
+                    delNotices(id).then(resp =>{
+                        
+                        this.$Notice.success({
+                            duration: 3,
+                            title: resp.msg
+                        });
+                        
+                        this.getPageInfo(1, this.pageSize);
+                    });
+                },
+            });
+        }
+    },
+    mounted(){
+        
+        this.getPageInfo(1, this.pageSize);
+    }
+}
+</script>

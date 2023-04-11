@@ -1,0 +1,62 @@
+.fater-leave-top{
+    width: 680rpx;
+    height: 240rpx;
+    border-radius: 20rpx;
+    margin: 50rpx auto 0 auto;
+    text-align: center;
+    line-height: 240rpx;
+    font-size: 80rpx;
+    color: #fff;
+    background-color: #6A39B4;
+}
+
+.fater-leave-item{
+    width: 680rpx;
+    height: 320rpx;
+    margin: 50rpx auto 0 auto;
+    position: relative;
+    border-radius: 20rpx;
+    background-color: #6A39B4;
+    color: #fff;
+}
+.fater-leave-item-ico{
+    position: absolute;
+    top: 20rpx;
+    left: 20rpx;
+    font-size: 80rpx;
+}
+.fater-leave-item-status{
+    position: absolute;
+    right: 0rpx;
+    padding: 15rpx;
+    height: 30rpx;
+    width: 85rpx;
+    font-size: 25rpx;
+    background-color: #2D81FD;
+    text-align: center;
+    border-bottom-left-radius: 20rpx;
+}
+.fater-leave-item-time{
+    position: absolute;
+    top: 20rpx;
+    left: 120rpx;
+    font-size: 40rpx;
+}
+.fater-leave-item-desc{
+    position: absolute;
+    left: 120rpx;
+    right: 30rpx;
+    top: 100rpx;
+    height: 130rpx;
+    overflow: hidden;
+    font-size: 24rpx;
+    color: #f8f8f9;
+    line-height: 42rpx;
+    text-align: justify;
+}
+.fater-check-item-foot{
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    font-size: 24rpx;
+}

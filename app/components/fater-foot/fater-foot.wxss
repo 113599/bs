@@ -1,0 +1,9 @@
+.fater-foot-panle{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 60rpx;
+    text-align: center;
+    color: #c4c4c4;
+    font-size: 28rpx;
+}

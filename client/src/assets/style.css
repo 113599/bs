@@ -1,0 +1,101 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+.ivu-card{
+	margin-bottom: 15px;
+}
+
+
+body {
+	background-color: #EEEEEE;
+}
+
+.fater-header {
+	margin-left: 200px;
+	cursor: pointer;
+	background-color: #fff;
+}
+.fater-header-nav{
+	float: left;
+}
+.fater-header-user {
+	float: right;
+	background-color: #fff;
+    margin-right: -35px;
+}
+.fater-header-logo {
+	height: 64px;
+	width: 200px;
+	text-align: center;
+	line-height: 64px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #2d8cf0;
+	background-color: #FFFFFF;
+	border-right: 1px solid #EEEEEE;
+}
+
+.fater-layout-left {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	width: 200px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+
+.fater-layout-body {
+	position: absolute;
+	left: 200px;
+	right: 0;
+	top: 64px;
+	bottom: 0;
+	background-color: #F2F2F2;
+	padding: 15px;
+}
+
+.fater-calendar-panel{
+	background: #fff;
+	padding: 10px;
+}
+
+.fater-sysinfo-panle table{
+	width: 100%;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+.fater-sysinfo-panle table td{
+	height: 40px;
+	padding-left: 10px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.fater-welcome-panle{
+	width: 100%;
+	height: 600px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(./2.jpg);
+	border: 10px solid #fff;
+}
+
+.fater-detail-panle{
+	width: 100%;
+}
+.fater-detail-panle tr{
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+.fater-detail-panle tr td{
+	padding: 5px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+.fater-detail-panle tr td:first-child{
+	background-color: #eee;
+}

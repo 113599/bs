@@ -1,0 +1,83 @@
+<view>
+    <fater-nav title="学生请假记录" isBack="{{isBack}}"></fater-nav>
+
+    <view bindtap="showAddWin" class="fater-leave-top">
+        <van-icon name="plus" />
+    </view>
+
+    <view wx:if="{{total > 0}}" class="fater-leave-panle">
+        <view wx:for="{{leaves}}" wx:key class="fater-leave-item">
+            <van-icon class="fater-leave-item-ico" name="notes-o" />
+            <view class="fater-leave-item-time">
+                {{item.createTime}}
+            </view>
+            <view class="fater-leave-item-status">
+                <text wx:if="{{item.status == 0}}">审核中</text>
+                <text wx:if="{{item.status == 1}}">同意</text>
+                <text wx:if="{{item.status == 2}}">拒绝</text>
+                <text wx:if="{{item.status == 3}}">已销假</text>
+            </view>
+            <view class="fater-leave-item-desc">
+                {{item.reason}}
+            </view>
+            <view class="fater-check-item-foot">
+                <text wx:if="{{item.status == 0}}">处理中请耐心等待</text>
+                <text wx:if="{{item.status == 1}}" 
+                    data-id="{{item.id}}" bindtap="showCancleWin">前往销假</text>
+                <text wx:if="{{item.status == 2}}" bindtap="showInfoWin" 
+                    data-teaName="{{item.teacherName}}" 
+                    data-replyComm="{{item.replyComm}}" 
+                    data-replyTime="{{item.replyTime}}"
+                    data-status="{{item.status}}">查看详情</text>
+                <text wx:if="{{item.status == 3}}" bindtap="showInfoWin" 
+                    data-teaName="{{item.teacherName}}" 
+                    data-replyComm="{{item.replyComm}}" 
+                    data-replyTime="{{item.replyTime}}"
+                    data-status="{{item.status}}">查看详情</text>
+            </view>
+        </view>
+    </view>
+    <van-empty wx:else image="search" description="暂无请假记录" />
+    
+    <van-popup show="{{ showAddFlag }}" round="{{ isRound }}">
+        <view class="fater-win">
+            <view class="fater-win-title">
+                <view class="fater-win-title-lab">
+                    请假申请
+                </view>
+                <van-icon bindtap="hiddenAddWin" class="fater-win-title-ico" name="cross" />
+            </view>
+            <view class="fater-win-body">
+                <form bindsubmit="addInfo" class="fater-form"> 
+                    <van-field autosize name="reason" value="{{ leavelForm.reason }}"
+                        placeholder-style="color: #dcdee2;"
+                        type="textarea" placeholder="请输入请假原由……"/>
+                    <view class="fater-form-foot">
+                        <van-button bindtap="hiddenAddWin"
+                            size="small" style="margin-right: 20rpx;">取消</van-button>
+                        <van-button form-type="submit" size="small" type="info">提交</van-button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </van-popup>
+
+    <van-dialog
+        message-align="left"
+        message="确认要销假吗?"
+        show="{{ showCancleFlag }}"
+        bind:confirm="updInfo"
+        bind:cancel="hideCancleWin"
+        show-cancel-button="{{ showConfirmBtn }}"
+        confirm-button-color='#000'/>
+
+    <van-dialog
+        message-align="left"
+        message="{{infoMsg}}"
+        show="{{ showInfoFlag }}"
+        bind:confirm="hideInfoWin"
+        confirm-button-color='#000'
+        confirm-button-text="知道了"/>
+
+    <fater-foot></fater-foot>
+</view>

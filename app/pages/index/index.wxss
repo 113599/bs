@@ -1,0 +1,77 @@
+.fater-index-top{
+    position: relative;
+    height: 300rpx;
+    background-color: #2d8cf0;
+    color: #fff;
+    padding: 30rpx;
+}
+.fater-index-top-welcome{
+    margin-top: 8rpx;
+    font-size: 25rpx;
+}
+.fater-index-top-ico{
+    position: absolute;
+    bottom: 70rpx;
+    left: 30rpx;
+    font-size: 130rpx;
+}
+.fater-index-top-date{
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+    font-size: 35rpx;
+}
+.fater-index-top-time{
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    font-size: 150rpx;
+}
+
+.fater-index-body{
+    width: 680rpx;
+    margin: 50rpx auto 0 auto;
+    color: #fff;
+}
+
+.fater-index-card{
+    height: 150rpx;
+    position: relative;
+    padding: 20rpx;
+    margin-bottom: 50rpx;
+    border-radius: 10rpx;
+}
+.fater-index-card-ico{
+    position: absolute;
+    right: 30rpx;
+    font-size: 65rpx;
+}
+.fater-index-card-title{
+    position: absolute;
+    font-size: 35rpx;
+}
+.fater-index-card-desc{
+    position: absolute;
+    bottom: 30rpx;
+    font-size: 25rpx;
+    line-height: 55rpx;
+}
+
+.fater-index-bg-orange{
+    background-color: #F07B27;
+}
+.fater-index-bg-blue{
+    background-color: #2D81FD;
+}
+.fater-index-bg-gren{
+    background-color: #2DBBB4;
+}
+.fater-index-bg-purple{
+    background-color: #6A39B4;
+}
+.fater-index-bg-viridity{
+    background-color: #3CB54E;
+}
+.fater-index-bg-brown{
+    background-color: #A36741;
+}

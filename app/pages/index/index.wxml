@@ -1,0 +1,69 @@
+<view>
+    <fater-nav title="好好学习，天天向上"></fater-nav>
+
+    <view class="fater-index-top">
+        <view class="fater-index-top-welcome">
+            莫等闲, 白了少年头, 空悲切
+        </view>
+        <van-icon class="fater-index-top-ico" name="fire-o"/>
+        <view class="fater-index-top-date">{{dateStr}}</view>
+        <view class="fater-index-top-time">{{timeStr}}</view>
+    </view>
+
+    <view class="fater-index-body">
+        <van-row gutter="20">
+            <van-col span="12">
+                <view bindtap="showNotice" class="fater-index-card fater-index-bg-orange">
+                    <van-icon class="fater-index-card-ico" name="volume-o"/>
+                    <view class="fater-index-card-title">校园公告</view>
+                    <view class="fater-index-card-desc">校园重要消息通知</view>
+                </view>
+            </van-col>
+            <van-col span="12">
+                <view bindtap="toProjectPage" 
+                    class="fater-index-card fater-index-bg-blue">
+                    <van-icon class="fater-index-card-ico" name="column"/>
+                    <view class="fater-index-card-title">授课安排</view>
+                    <view class="fater-index-card-desc">班级授课安排情况</view>
+                </view>
+            </van-col>
+            <van-col span="12">
+                <view bindtap="toCheckPage"
+                    class="fater-index-card fater-index-bg-gren">
+                    <van-icon class="fater-index-card-ico" name="location-o"/>
+                    <view class="fater-index-card-title">考勤打卡</view>
+                    <view class="fater-index-card-desc">日常上课打卡处理</view>
+                </view>
+            </van-col>
+            <van-col span="12">
+                <view bindtap="toLeavePage"
+                    class="fater-index-card fater-index-bg-purple">
+                    <van-icon class="fater-index-card-ico" name="notes-o"/>
+                    <view class="fater-index-card-title">请假处理</view>
+                    <view class="fater-index-card-desc">学生假期申请处理</view>
+                </view>
+            </van-col>
+            <van-col span="12">
+                <view bindtap="toSettingPage"
+                    class="fater-index-card fater-index-bg-brown">
+                    <van-icon class="fater-index-card-ico" name="setting-o"/>
+                    <view class="fater-index-card-title">系统设置</view>
+                    <view class="fater-index-card-desc">系统相关设置操作</view>
+                </view>
+            </van-col>
+            <van-col span="12">
+                <view bindtap="showMore" class="fater-index-card fater-index-bg-viridity">
+                    <van-icon class="fater-index-card-ico" name="more-o"/>
+                    <view class="fater-index-card-title">更多信息</view>
+                    <view class="fater-index-card-desc">项目资料获取说明</view>
+                </view>
+            </van-col>
+        </van-row>
+    </view>
+    
+    <van-dialog id="van-dialog" confirm-button-color='#000'/>
+
+    
+
+    <fater-foot></fater-foot>
+</view>

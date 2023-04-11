@@ -1,0 +1,94 @@
+<view style="background-color: #f8f8f9;height: {{pageHight}}px;">
+    <fater-nav title="系统设置" isBack="{{isBack}}"></fater-nav>
+
+    <van-cell-group title="账号设置">
+        <van-cell bindtap="showInfoWin" title="个人信息编辑" is-link />
+        <van-cell bindtap="showPwdWin" title="登陆密码设置" is-link />
+    </van-cell-group>
+    <van-cell-group title="系统相关">
+        <van-cell bindtap="showProjectWin" title="关于项目" is-link />
+        <van-cell bindtap="showProjectWin" title="项目获取" is-link />
+        <van-cell bindtap="showExitWin">
+            <view class="fater-text-center" slot="title">
+                退出系统
+            </view>
+        </van-cell>
+    </van-cell-group>
+
+    <van-popup show="{{ showInfoFlag }}" round="{{ isRound }}">
+        <view class="fater-win">
+            <view class="fater-win-title">
+                <view class="fater-win-title-lab">
+                    个人信息
+                </view>
+                <van-icon bindtap="hideInfoWin" class="fater-win-title-ico" name="cross" />
+            </view>
+            <view class="fater-win-body">
+                <form bindsubmit="updInfo" class="fater-form"> 
+                    <van-field label="登陆账号" 
+                        name="userName" value="{{userInfo.userName}}" placeholder="请输入登陆账号……"/>
+                    <van-field label="学生姓名" 
+                        name="name" value="{{userInfo.name}}" placeholder="请输入学生姓名……"/>
+                    <van-field label="学生年龄" 
+                        name="age"  value="{{userInfo.age}}" placeholder="请输入学生年龄……"/>
+                    <van-cell title="学生性别">
+                        <van-radio-group bind:change="changeGender"
+                            name="gender" value="{{ userInfo.gender }}" direction="horizontal">
+                            <van-radio shape="shape" name="男">男</van-radio>
+                            <van-radio shape="shape" name="女">女</van-radio>
+                        </van-radio-group>
+                    </van-cell>
+                    <view class="fater-form-foot">
+                        <van-button bindtap="hideInfoWin"
+                            size="small" style="margin-right: 20rpx;">取消</van-button>
+                        <van-button form-type="submit" size="small" type="info">提交</van-button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </van-popup>
+
+    <van-popup show="{{ showPwdFlag }}" round="{{ isRound }}">
+        <view class="fater-win">
+            <view class="fater-win-title">
+                <view class="fater-win-title-lab">
+                    密码设置
+                </view>
+                <van-icon bindtap="hidePwdWin" class="fater-win-title-ico" name="cross" />
+            </view>
+            <view class="fater-win-body">
+                <form bindsubmit="updPwd" class="fater-form"> 
+                    <van-field label="原始密码" value="{{pwdForm.oldPwd}}"
+                        name="oldPwd" password placeholder="请输入原始密码……"/>
+                    <van-field label="修改密码" value="{{pwdForm.newPwd}}"
+                        name="newPwd" password placeholder="请输入修改密码……"/>
+                    <van-field label="确认密码" value="{{pwdForm.rePwd}}"
+                        name="rePwd" password placeholder="请确认修改密码……"/>
+                    <view class="fater-form-foot">
+                        <van-button bindtap="hidePwdWin"
+                            size="small" style="margin-right: 20rpx;">取消</van-button>
+                        <van-button form-type="submit" size="small" type="info">提交</van-button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </van-popup>
+
+    <van-dialog
+        message-align="left"
+        message='嗨，大家好，我是小胖，一名普通程序员，如果需要项目代码和设计文档关注我的微信公众号肥仔编程或者搜索小程序编程苑联系我付费获取，感谢您的支持和帮助'
+        show="{{ showProjectFlag }}"
+        confirm-button-text="知道了"
+        confirm-button-color='#000'/>
+
+    <van-dialog
+        message-align="left"
+        message="确认要退出吗?"
+        show="{{ showExitFlag }}"
+        bind:confirm="exit"
+        bind:cancel="hideExitWin"
+        show-cancel-button="{{ showConfirmBtn }}"
+        confirm-button-color='#000'/>
+
+    <fater-foot></fater-foot>
+</view>

@@ -1,0 +1,8 @@
+.fater-nav-bg{
+    color: #fff !important;
+    background-color: #2d8cf0;
+}
+
+.fater-nav-title{
+    color: #fff;
+}

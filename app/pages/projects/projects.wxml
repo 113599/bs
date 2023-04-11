@@ -1,0 +1,24 @@
+<view>
+    <fater-nav title="学生上课安排" isBack="{{isBack}}"></fater-nav>
+
+    <view class="fater-project">
+        <van-row gutter="20">
+            <van-col wx:for="{{projects}}" wx:key span="12">
+                <view class="fater-project-panle">
+                    <van-icon class="fater-project-ico" name="column" />
+                    <view class="fater-project-name">
+                        {{item.projectName}}
+                    </view>
+                    <view class="fater-project-teacher">
+                        <view class="fater-project-teacher-name">授课教师：{{item.teacherName}}</view>
+                        <view class="fater-project-teacher-name">教师学历：{{item.teacherRecord}}</view>
+                        <view class="fater-project-teacher-name">联系电话：{{item.teacherPhone}}</view>
+                    </view>
+                </view>
+            </van-col>
+        </van-row>
+    </view>
+    
+
+    <fater-foot></fater-foot>
+</view>

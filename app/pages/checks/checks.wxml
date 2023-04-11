@@ -1,0 +1,47 @@
+<view>
+    <fater-nav title="学生考勤记录" isBack="{{isBack}}"></fater-nav>
+
+    <view bindtap="showAddWin" class="fater-check-top">
+        <van-icon name="plus" />
+    </view>
+
+    <view wx:if="{{total > 0}}" class="fater-check-panle">
+        <view wx:for="{{checks}}" wx:key class="fater-check-item">
+            <van-icon class="fater-check-item-ico" name="location-o" />
+            <view class="fater-check-item-no">
+                签到码：{{item.checkNo}}
+            </view>
+            <view class="fater-check-item-desc">
+                您于 {{item.checkTime}} 在{{item.gradeName}} {{item.teacherName}} 老师授课期间签到成功, 请继续保持
+            </view>
+            <view class="fater-check-item-time">
+                {{item.checkDate}}
+            </view>
+        </view>
+    </view>
+    <van-empty wx:else image="search" description="暂无请假记录" />
+    
+    <van-popup show="{{ showAddFlag }}" round="{{ isRound }}">
+        <view class="fater-win">
+            <view class="fater-win-title">
+                <view class="fater-win-title-lab">
+                    学生考勤
+                </view>
+                <van-icon bindtap="hideAddWin" class="fater-win-title-ico" name="cross" />
+            </view>
+            <view class="fater-win-body">
+                <form bindsubmit="addInfo" class="fater-form"> 
+                    <van-field name="checkNo" value="{{ checkForm.checkNo }}"
+                        placeholder="请输入签到码……"/>
+                    <view class="fater-form-foot">
+                        <van-button bindtap="hideAddWin"
+                            size="small" style="margin-right: 20rpx;">取消</van-button>
+                        <van-button form-type="submit" size="small" type="info">提交</van-button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </van-popup>
+
+    <fater-foot></fater-foot>
+</view>

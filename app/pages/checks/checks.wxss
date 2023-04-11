@@ -1,0 +1,49 @@
+.fater-check-top{
+    width: 680rpx;
+    height: 240rpx;
+    border-radius: 20rpx;
+    margin: 50rpx auto 0 auto;
+    text-align: center;
+    line-height: 240rpx;
+    font-size: 80rpx;
+    color: #fff;
+    background-color: #2DBBB4;
+}
+
+.fater-check-item{
+    width: 680rpx;
+    height: 240rpx;
+    margin: 50rpx auto 0 auto;
+    position: relative;
+    border-radius: 20rpx;
+    background-color: #2DBBB4;
+    color: #fff;
+}
+.fater-check-item-ico{
+    position: absolute;
+    top: 20rpx;
+    left: 20rpx;
+    font-size: 100rpx;
+}
+.fater-check-item-no{
+    position: absolute;
+    top: 20rpx;
+    left: 140rpx;
+    font-size: 40rpx;
+}
+.fater-check-item-desc{
+    position: absolute;
+    left: 140rpx;
+    right: 30rpx;
+    bottom: 50rpx;
+    font-size: 26rpx;
+    color: #f8f8f9;
+    line-height: 45rpx;
+}
+.fater-check-item-time{
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    font-size: 24rpx;
+    color: #f8f8f9;
+}

@@ -1,0 +1,31 @@
+.fater-project{
+    width: 680rpx;
+    margin: 50rpx auto 0 auto;
+}
+.fater-project-panle{
+    background-color: #2D81FD;
+    border-radius: 20rpx;
+    position: relative;
+    color: #fff;
+    height: 280rpx;
+    margin-bottom: 40rpx;
+}
+.fater-project-ico{
+    position: absolute;
+    left: 20rpx;
+    top: 20rpx;
+    font-size: 95rpx;
+}
+.fater-project-name{
+    position: absolute;
+    left: 120rpx;
+    top: 25rpx;
+    font-size: 35rpx;
+}
+.fater-project-teacher{
+    position: absolute;
+    left: 30rpx;
+    top: 140rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+}

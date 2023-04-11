@@ -1,0 +1,15 @@
+<view class="fater-login">
+    <fater-nav title="好好学习，天天向上"></fater-nav>
+    <view class="fater-login-top"></view>
+    <view class="fater-login-win">
+        <form bindsubmit="login" class="fater-login-form">
+            <van-field name="userName" icon="user-circle-o"
+                custom-style="margin: 100rpx 20rpx 40rpx 20rpx;width:600rpx;" placeholder="请输入系统账号……"/>
+            <van-field name="passWord" password icon="closed-eye"
+                custom-style="margin: 60rpx 20rpx 20rpx 20rpx;width:600rpx;" placeholder="请输入登陆密码……"/>
+            <van-button form-type="submit" round="true" bindtap="login"
+                custom-style="margin: 90rpx 55rpx 20rpx 55rpx;width:540rpx" type="info">登陆</van-button>
+        </form>
+    </view>
+    <fater-foot></fater-foot>
+</view>

@@ -1,0 +1,12 @@
+<view class="fater-nav-panle">
+    <van-nav-bar wx:if="{{isBack}}"
+        custom-class="fater-nav-bg" title-class="fater-nav-title"
+        border="{{isHideBorder}}" title="{{title}}">
+        <view bindtap="toHome" slot="left">
+            <van-icon name="arrow-left" /> 返回
+        </view> 
+    </van-nav-bar>
+    <van-nav-bar wx:else
+        custom-class="fater-nav-bg" title-class="fater-nav-title"
+        border="{{isHideBorder}}" title="{{title}}"></van-nav-bar>
+</view>
